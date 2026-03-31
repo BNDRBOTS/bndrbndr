@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
         /* --- RESET & TOKENS --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
         :root {
             --bone: #E8E4DF;       
             --void: #020202;       
@@ -479,15 +479,17 @@
         @media (max-width: 539px) {
             /* Transform Side Drawers into Premium iOS Bottom Sheets */
             .drawer {
-                top: 10vh; /* Floating top edge for visual depth */
-                height: 90vh; height: 90dvh;
+                top: 8vh; /* Higher floating edge for better reachability */
+                height: 92vh; height: 92dvh;
                 right: 0; left: 0;
                 transform: translateY(100%);
-                border-radius: 24px 24px 0 0;
+                border-radius: 28px 28px 0 0;
                 border-left: none;
                 border-top: 1px solid rgba(255, 255, 255, 0.15);
                 box-shadow: 0 -20px 60px rgba(0,0,0,0.6);
                 max-width: 100%;
+                background: rgba(18, 18, 19, 0.75); /* Slightly darker/more opaque for mobile contrast */
+                backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%);
             }
             .drawer.active {
                 transform: translateY(0);
@@ -497,24 +499,26 @@
             .drawer::before {
                 content: '';
                 position: absolute;
-                top: 12px; left: 50%;
+                top: 10px; left: 50%;
                 transform: translateX(-50%);
-                width: 36px; height: 5px;
-                background: rgba(255, 255, 255, 0.2);
-                border-radius: 4px;
+                width: 40px; height: 5px;
+                background: rgba(255, 255, 255, 0.25);
+                border-radius: 99px;
                 z-index: 10;
             }
             
             .drawer-close {
-                top: 20px; right: 20px;
+                top: 18px; right: 20px;
                 width: 32px; height: 32px;
-                background: rgba(255, 255, 255, 0.08);
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
                 font-size: 20px;
+                color: rgba(255,255,255,0.7);
             }
 
             /* Edge-to-Edge Container Preparation */
-            .drawer-scroll { padding: 64px 0 48px 0; }
-            #pricing-title, #pastwork-title { margin-left: 24px; margin-right: 24px; }
+            .drawer-scroll { padding: 64px 0 64px 0; }
+            #pricing-title, #pastwork-title { margin-left: 24px; margin-right: 24px; font-size: 32px; }
             .drawer-scroll > .section-header { padding: 0 24px; }
 
             /* Pricing: Horizontal iOS Snap Carousel */
@@ -527,14 +531,20 @@
                 gap: 16px;
                 scrollbar-width: none;
                 -webkit-overflow-scrolling: touch;
+                scroll-padding-left: 24px;
             }
             .pricing-drawer-grid::-webkit-scrollbar { display: none; }
+            .pricing-drawer-grid::after {
+                content: '';
+                flex: 0 0 8px; /* Safe-area spacer for the final snap point */
+            }
             .pricing-card-mini {
-                flex: 0 0 82vw;
-                scroll-snap-align: center;
+                flex: 0 0 84vw;
+                scroll-snap-align: start;
                 padding: 32px 24px;
-                border-radius: 20px;
+                border-radius: 24px;
                 background: rgba(10, 10, 11, 0.85);
+                border: 1px solid rgba(255,255,255,0.08);
             }
 
             /* Past Work: iOS Grouped Table View */
@@ -548,30 +558,30 @@
                 margin-bottom: 12px !important; padding: 0 8px;
             }
             .pastwork-list {
-                background: rgba(255, 255, 255, 0.04);
-                border: 1px solid rgba(255, 255, 255, 0.06);
-                border-radius: 16px;
+                background: rgba(20, 20, 22, 0.6);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 20px;
                 gap: 0;
+                overflow: hidden;
             }
             .pastwork-list li a {
-                padding: 16px 20px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+                padding: 18px 20px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
                 font-size: 16px;
-                color: rgba(232, 228, 223, 0.9);
+                color: rgba(232, 228, 223, 0.95);
                 border-radius: 0;
                 background: transparent;
             }
             .pastwork-list li:last-child a { border-bottom: none; }
             .pastwork-list li a::after {
                 content: '›';
-                font-size: 22px;
+                font-size: 24px;
+                line-height: 1;
                 font-family: system-ui, -apple-system, sans-serif;
-                color: rgba(255,255,255,0.3);
+                color: rgba(255,255,255,0.25);
                 opacity: 1; transform: none; transition: color 0.3s;
             }
-            .pastwork-list li a:active { background: rgba(255, 255, 255, 0.05); }
-            .pastwork-list li:first-child a:active { border-radius: 16px 16px 0 0; }
-            .pastwork-list li:last-child a:active { border-radius: 0 0 16px 16px; }
+            .pastwork-list li a:active { background: rgba(255, 255, 255, 0.08); }
 
             /* Global Base Optimizations */
             .nav-pill { top: max(12px, env(safe-area-inset-top)); gap: 4px; padding: 6px; max-width: calc(100% - 24px); }
