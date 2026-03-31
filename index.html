@@ -532,9 +532,7 @@
                 scrollbar-width: none;
                 -webkit-overflow-scrolling: touch;
                 scroll-padding-left: 24px;
-                touch-action: pan-x pan-y;
                 overscroll-behavior-x: contain;
-                overscroll-behavior-y: none;
             }
             .pricing-drawer-grid::-webkit-scrollbar { display: none; }
             .pricing-drawer-grid::after {
@@ -548,9 +546,8 @@
                 border-radius: 24px;
                 background: rgba(10, 10, 11, 0.85);
                 border: 1px solid rgba(255,255,255,0.08);
-                transform: translate3d(0,0,0);
-                -webkit-user-drag: none;
-                touch-action: pan-x pan-y;
+                -webkit-user-select: none;
+                user-select: none;
             }
 
             /* Past Work: iOS Grouped Table View */
@@ -643,7 +640,7 @@
                     <div class="section-header">
                         <div class="section-badge">The Foundation</div>
                     </div>
-                    <p class="lead-text" id="work-lead">We build custom websites from the ground up, giving your brand total control and limitless potential to stand out.</p>
+                    <p class="lead-text" id="work-lead">You work directly with the person building it. The layout, words, motion, and details are shaped to fit your brand and what people need to understand fast.</p>
                 </div>
                 <div class="reveal-right delay-2 reveal-item balance-offset">
                     <p class="body-text">We craft every line of code by hand, weaving your unique brand psychology into a tailored experience. Your site stands completely on its own, designed to work as hard as you do.</p>
