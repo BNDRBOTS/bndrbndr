@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>BNDR LLC | Custom Web Design</title>
-    <meta name="description" content="Custom web design that gives your brand total control. We bring 20 years of retail and sales psychology to every build.">
+    <meta name="description" content="Custom web design that pulls its own weight. We bring 20 years of retail and applied sales psychology to every build.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -45,7 +45,6 @@
             letter-spacing: -0.01em;
         }
         @media (pointer: fine) { body { cursor: crosshair; } }
-        
         /* --- 3D BACKGROUND LAYER --- */
         #webgl-container {
             position: fixed;
@@ -58,14 +57,12 @@
             pointer-events: none;
             opacity: 0;
         }
-        
-        /* --- GLOBAL EFFECTS --- */
-        #global-flash {
+        /* --- SYSTEM EFFECTS --- */
+        #system-flash {
             position: fixed; inset: 0; background: var(--plasma);
             pointer-events: none; opacity: 0; z-index: 10000;
         }
-        
-        /* --- INTERSECTION ANIMATIONS & STAGGERS --- */
+        /* --- OPTIMAL INTERSECTION ANIMATIONS & STAGGERS --- */
         .reveal-left { opacity: 0; transform: translate3d(-60px, 0, 0); transition: opacity 1.2s var(--ease-out-expo), transform 1.2s var(--ease-out-expo); will-change: opacity, transform; }
         .reveal-right { opacity: 0; transform: translate3d(60px, 0, 0); transition: opacity 1.2s var(--ease-out-expo), transform 1.2s var(--ease-out-expo); will-change: opacity, transform; }
         .reveal-up { opacity: 0; transform: translate3d(0, 40px, 0); transition: opacity 1.2s var(--ease-out-expo), transform 1.2s var(--ease-out-expo); will-change: opacity, transform; }
@@ -74,7 +71,7 @@
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
         
-        /* Text Animation Utilities */
+        /* Advanced Stagger Utilities */
         .word-wrap { display: inline-block; overflow: hidden; vertical-align: top; padding-right: 0.25em; margin-bottom: -0.1em; }
         .word-inner { display: inline-block; transform: translate3d(0, 110%, 0) rotate(2deg); opacity: 0; transition: transform 0.9s var(--ease-premium), opacity 0.9s var(--ease-premium); will-change: transform, opacity; transform-origin: top left;}
         .is-visible .word-inner { transform: translate3d(0, 0%, 0) rotate(0deg); opacity: 1; }
@@ -86,7 +83,6 @@
             z-index: 10;
             width: 100%;
         }
-        
         /* --- GLOBAL NAV & BACK BUTTON --- */
         .nav-pill {
             position: fixed;
@@ -153,17 +149,18 @@
                 transform: scale(1.02);
             }
         }
-        
+        @media (max-width: 539px) {
+            .nav-pill { top: max(16px, env(safe-area-inset-top)); gap: 2px; padding: 4px; }
+            .nav-pill a, .nav-pill button { font-size: 10px; padding: 10px 14px; letter-spacing: 0.08em; }
+        }
         /* --- LAYOUT GRIDS --- */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 max(24px, env(safe-area-inset-right)) 0 max(24px, env(safe-area-inset-left)); }
         .grid-2 { display: grid; grid-template-columns: 1fr; gap: 56px; }
         @media (min-width: 800px) { .grid-2 { grid-template-columns: 1fr 1fr; gap: 104px; } }
-        
-        /* Layout Alignment Fix */
+        /* Structural Alignment Fix */
         @media (min-width: 800px) {
             .balance-offset { margin-top: 76px; }
         }
-        
         /* --- HERO --- */
         .hero {
             position: relative;
@@ -205,13 +202,12 @@
             max-width: 90%;
             will-change: transform, opacity;
         }
-        
         /* --- SECTIONS --- */
         section { padding: 96px 0; position: relative; }
         @media (min-width: 768px) { section { padding: 160px 0; } }
         .section-header { display: flex; align-items: center; margin-bottom: 40px; width: 100%; }
         .section-header::after { content: ''; flex-grow: 1; height: 1px; background: linear-gradient(90deg, rgba(2,2,2,0.12) 0%, transparent 100%); margin-left: 24px; }
-        .drawer .section-header::after, .pricing-card-mini .section-header::after, .pastwork-category .section-header::after, footer .section-header::after { background: linear-gradient(90deg, rgba(232, 228, 223, 0.12) 0%, transparent 100%); }
+        .drawer .section-header::after, .pricing-card-mini .section-header::after, .archive-category .section-header::after, footer .section-header::after { background: linear-gradient(90deg, rgba(232, 228, 223, 0.12) 0%, transparent 100%); }
         .section-badge {
             position: relative; display: inline-flex; align-items: center; gap: 12px; padding: 10px 24px 10px 18px;
             font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bone); z-index: 1;
@@ -231,7 +227,7 @@
         button.section-badge:focus-visible, button.section-badge:active { outline: 2px solid var(--plasma); outline-offset: 4px; transform: translateY(-2px); }
         @media (hover: hover) { button.section-badge:hover { transform: translateY(-2px); } }
         
-        /* Glass Effect */
+        /* Tactile Glass Effect */
         .glass-panel {
             background: rgba(10, 10, 11, 0.65);
             backdrop-filter: blur(16px) saturate(200%); -webkit-backdrop-filter: blur(16px) saturate(200%);
@@ -239,16 +235,14 @@
             box-shadow: inset 0 1px 1px rgba(255,255,255,0.08), 0 -20px 40px -20px rgba(0,0,0,0.6);
             position: relative; z-index: 1;
         }
-        .glass-panel::before, .pricing-card-mini::before, .pastwork-category::before {
+        .glass-panel::before, .pricing-card-mini::before, .archive-category::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
             mix-blend-mode: overlay; opacity: 0.04; pointer-events: none; border-radius: inherit; z-index: -1;
         }
-        
         /* --- COPY BLOCK --- */
         .lead-text { font-size: clamp(28px, 5vw, 44px); font-weight: 700; line-height: 1.15; margin-bottom: 32px; letter-spacing: -0.02em; color: var(--bone); }
         .body-text { font-size: 18px; line-height: 1.65; color: rgba(232, 228, 223, 0.85); margin-bottom: 28px; font-weight: 500; }
-        
         /* --- BUTTONS --- */
         .btn-primary {
             display: block; width: 100%; background: var(--plasma); color: var(--void); text-align: center;
@@ -269,7 +263,6 @@
                 box-shadow: 0 16px 32px -8px rgba(204, 255, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.7); 
             }
         }
-        
         /* --- FAQ ACCORDION --- */
         .faq-columns { display: grid; grid-template-columns: 1fr; gap: 0 64px; align-items: start; }
         @media (min-width: 800px) { .faq-columns { grid-template-columns: 1fr 1fr; } }
@@ -287,13 +280,14 @@
         @media (min-width: 768px) { .faq-item p { padding-right: 48px; } }
         @keyframes faqReveal { to { opacity: 1; transform: translateY(0); } }
         
-        /* --- DRAWERS (SIDE PANELS - DESKTOP BASE) --- */
+        /* --- DRAWERS (SIDE PANELS) --- */
         .drawer-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh; height: 100dvh; background: rgba(2, 2, 2, 0.6);
             backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             z-index: 1400; opacity: 0; pointer-events: none; transition: opacity 0.5s var(--ease-premium);
         }
         .drawer-overlay.active { opacity: 1; pointer-events: auto; touch-action: none; }
+        
         .drawer {
             position: fixed; top: 0; right: 0; width: 100%; max-width: 520px; height: 100vh; height: 100dvh;
             background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(60px) saturate(200%); -webkit-backdrop-filter: blur(60px) saturate(200%);
@@ -309,9 +303,14 @@
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             overscroll-behavior: contain;
+            /* touch-action: pan-y; REMOVED - This was locking horizontal gestures globally */
             padding: 96px max(32px, env(safe-area-inset-right)) max(48px, env(safe-area-inset-bottom)) max(32px, env(safe-area-inset-left));
         }
         .drawer.active { transform: translateX(0); }
+        @media (max-width: 539px) {
+            .drawer { max-width: 100%; }
+            .drawer-scroll { padding: 80px max(24px, env(safe-area-inset-right)) max(40px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left)); }
+        }
         .drawer-close {
             position: absolute; top: max(32px, env(safe-area-inset-top)); right: max(32px, env(safe-area-inset-right)); background: none; border: none; font-size: 36px;
             color: var(--bone); cursor: pointer; opacity: 0.5; transition: all 0.3s var(--ease-premium);
@@ -342,28 +341,31 @@
         .pricing-card-mini .feature-list li::before { content: '✓'; color: var(--plasma); font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 14px; }
         .pricing-card-mini.tier-special .feature-list li::before { color: var(--magenta); }
         
-        /* --- PAST WORK MINI CARDS --- */
-        .pastwork-drawer-grid { display: grid; gap: 24px; }
-        .pastwork-category {
+        /* --- ARCHIVE MINI CARDS --- */
+        .archive-drawer-grid { display: grid; gap: 24px; }
+        .archive-category {
             background: rgba(2, 2, 2, 0.4); color: var(--bone); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 32px;
             position: relative;
             transition: all 0.4s var(--ease-premium);
             box-shadow: inset 0 1px 1px rgba(255,255,255,0.08), 0 20px 40px -10px rgba(0,0,0,0.8);
             z-index: 1;
         }
-        @media (hover: hover) { .pastwork-category:hover { border-color: rgba(255,255,255,0.25); background: rgba(10, 10, 11, 0.8); } }
-        .pastwork-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
-        .pastwork-list li a {
+        @media (hover: hover) { .archive-category:hover { border-color: rgba(255,255,255,0.25); background: rgba(10, 10, 11, 0.8); } }
+        .archive-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+        .archive-list li a {
             display: flex; justify-content: space-between; align-items: center; color: rgba(232, 228, 223, 0.75);
             text-decoration: none; font-size: 15px; font-weight: 500; padding: 12px 0;
             border-bottom: 1px solid rgba(255,255,255,0.04); transition: all 0.3s var(--ease-premium); position: relative;
         }
-        .pastwork-list li a::after { content: '↗'; font-size: 13px; color: var(--plasma); opacity: 0; transform: translateX(-16px); transition: all 0.4s var(--ease-premium); }
-        .pastwork-list li a:focus-visible, .pastwork-list li a:active { color: var(--plasma); padding-left: 12px; border-bottom-color: rgba(204, 255, 0, 0.3); outline: none; background: linear-gradient(90deg, rgba(204,255,0,0.05) 0%, transparent 100%); }
-        .pastwork-list li a:focus-visible::after, .pastwork-list li a:active::after { opacity: 1; transform: translateX(0); }
+        .archive-list li a::after { content: '↗'; font-size: 13px; color: var(--plasma); opacity: 0; transform: translateX(-16px); transition: all 0.4s var(--ease-premium); }
+        .archive-list li a:focus-visible, .archive-list li a:active { color: var(--plasma); padding-left: 12px; border-bottom-color: rgba(204, 255, 0, 0.3); outline: none; background: linear-gradient(90deg, rgba(204,255,0,0.05) 0%, transparent 100%); }
+        .archive-list li a:focus-visible::after, .archive-list li a:active::after { opacity: 1; transform: translateX(0); }
         @media (hover: hover) {
-            .pastwork-list li a:hover { color: var(--plasma); padding-left: 12px; border-bottom-color: rgba(204, 255, 0, 0.3); outline: none; background: linear-gradient(90deg, rgba(204,255,0,0.05) 0%, transparent 100%); }
-            .pastwork-list li a:hover::after { opacity: 1; transform: translateX(0); }
+            .archive-list li a:hover { color: var(--plasma); padding-left: 12px; border-bottom-color: rgba(204, 255, 0, 0.3); outline: none; background: linear-gradient(90deg, rgba(204,255,0,0.05) 0%, transparent 100%); }
+            .archive-list li a:hover::after { opacity: 1; transform: translateX(0); }
+        }
+        @media (max-width: 539px) {
+            .pricing-card-mini, .archive-category { padding: 24px; }
         }
         
         /* --- FOOTER & CONTACT --- */
@@ -396,6 +398,7 @@
             .connect-btn:hover { transform: translateY(-3px); }
             .connect-btn:hover::before { background: #e5ff66; box-shadow: 0 6px 16px -4px rgba(204, 255, 0, 0.4); }
         }
+        /* Elite QR Code Compression */
         .elite-qr {
             height: 72px; 
             max-height: 80px;
@@ -409,7 +412,6 @@
         @media (hover: hover) {
             .elite-qr:hover { filter: grayscale(0%) opacity(1); }
         }
-        
         /* --- LEGAL LINKS --- */
         .footer-policy-links { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 8px; }
         .footer-policy-links a { position: relative; color: var(--bone); text-decoration: none; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.3s; opacity: 0.8; }
@@ -418,12 +420,13 @@
         @media (hover: hover) { .footer-policy-links a:hover { color: var(--plasma); opacity: 1; } }
         .legal-notice { font-size: 10px; font-weight: 400; letter-spacing: 0.01em; line-height: 1.5; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; max-width: 100%; }
         
-        /* --- MODALS --- */
+        /* --- MODALS (Ultra-Professional Glass) --- */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh; height: 100dvh; background: rgba(10, 10, 11, 0.9);
             backdrop-filter: blur(32px) saturate(180%); -webkit-backdrop-filter: blur(32px) saturate(180%); z-index: 2000;
             display: flex; align-items: flex-start; justify-content: center; overflow-y: auto; padding: max(24px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
             opacity: 0; pointer-events: none; transition: opacity 0.5s var(--ease-premium); overscroll-behavior: contain;
+            /* REMOVED touch-action lock here */
         }
         @media (min-width: 768px) { .modal-overlay { align-items: center; padding: 0; } }
         .modal-overlay.active { opacity: 1; pointer-events: auto; }
@@ -437,6 +440,7 @@
             box-shadow: 0 40px 100px -20px rgba(0,0,0,0.6), inset 0 2px 0 rgba(255,255,255,0.8);
         }
         @media (min-width: 768px) { .modal-content { padding: 64px 56px; } }
+        @media (max-width: 539px) { .modal-content { padding: 40px 24px; } }
         .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
         .modal-close { position: absolute; top: 24px; right: 24px; background: none; border: none; font-size: 32px; color: var(--void); cursor: pointer; opacity: 0.4; transition: all 0.3s var(--ease-premium); width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
         .modal-close:focus-visible, .modal-close:active { opacity: 1; outline: none; transform: rotate(90deg); background: rgba(0,0,0,0.05); color: var(--magenta); }
@@ -444,7 +448,6 @@
         .modal-content h2 { color: var(--void); font-size: 32px; font-weight: 800; margin-bottom: 40px; letter-spacing: -0.02em; font-family: 'Outfit', sans-serif;}
         
         .form-group input, .form-group textarea { 
-            appearance: none; -webkit-appearance: none;
             width: 100%; 
             background: rgba(0,0,0,0.03); 
             border: 1px solid rgba(2, 2, 2, 0.1); 
@@ -517,7 +520,7 @@
 
             /* Edge-to-Edge Container Preparation */
             .drawer-scroll { padding: 64px 0 64px 0; }
-            #pricing-title, #pastwork-title { margin-left: 24px; margin-right: 24px; font-size: 32px; }
+            #pricing-title, #archive-title { margin-left: 24px; margin-right: 24px; font-size: 32px; }
             .drawer-scroll > .section-header { padding: 0 24px; }
 
             /* Pricing: Horizontal iOS Snap Carousel */
@@ -533,6 +536,9 @@
                 -webkit-overflow-scrolling: touch;
                 scroll-padding-left: 24px;
                 overscroll-behavior-x: contain;
+                touch-action: auto; /* Explicitly ensure touch input flows into this block */
+                transform: translateZ(0); /* Force hardware compositing to bypass iOS wrapper bugs */
+                -webkit-transform: translateZ(0);
             }
             .pricing-drawer-grid::-webkit-scrollbar { display: none; }
             .pricing-drawer-grid::after {
@@ -546,28 +552,26 @@
                 border-radius: 24px;
                 background: rgba(10, 10, 11, 0.85);
                 border: 1px solid rgba(255,255,255,0.08);
-                -webkit-user-select: none;
-                user-select: none;
             }
 
-            /* Past Work: iOS Grouped Table View */
-            .pastwork-drawer-grid {
+            /* Archive: iOS Grouped Table View */
+            .archive-drawer-grid {
                 display: flex; flex-direction: column; gap: 32px; padding: 0 24px;
             }
-            .pastwork-category {
+            .archive-category {
                 padding: 0; border: none; background: transparent; box-shadow: none;
             }
-            .pastwork-category .section-header {
+            .archive-category .section-header {
                 margin-bottom: 12px !important; padding: 0 8px;
             }
-            .pastwork-list {
+            .archive-list {
                 background: rgba(20, 20, 22, 0.6);
                 border: 1px solid rgba(255, 255, 255, 0.08);
                 border-radius: 20px;
                 gap: 0;
                 overflow: hidden;
             }
-            .pastwork-list li a {
+            .archive-list li a {
                 padding: 18px 20px;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.06);
                 font-size: 16px;
@@ -575,8 +579,8 @@
                 border-radius: 0;
                 background: transparent;
             }
-            .pastwork-list li:last-child a { border-bottom: none; }
-            .pastwork-list li a::after {
+            .archive-list li:last-child a { border-bottom: none; }
+            .archive-list li a::after {
                 content: '›';
                 font-size: 24px;
                 line-height: 1;
@@ -584,33 +588,18 @@
                 color: rgba(255,255,255,0.25);
                 opacity: 1; transform: none; transition: color 0.3s;
             }
-            .pastwork-list li a:active { background: rgba(255, 255, 255, 0.08); }
-
-            /* Global Base Optimizations */
-            .nav-pill { top: max(12px, env(safe-area-inset-top)); gap: 4px; padding: 6px; max-width: calc(100% - 24px); }
-            .nav-pill a, .nav-pill button { font-size: 11px; padding: 14px 18px; letter-spacing: 0.08em; }
-            section { padding: 80px 0; }
-            .lead-text { font-size: clamp(26px, 7vw, 32px); line-height: 1.25; margin-bottom: 24px; }
-            .body-text { font-size: 16px; line-height: 1.6; margin-bottom: 24px; }
-            .faq-item { padding: 24px 0; }
-            .faq-item summary { font-size: 20px; }
-            .faq-item p { font-size: 16px; }
-            .connect-btn { padding: 12px 16px; font-size: 11px; }
-            .connect-grid { gap: 12px; }
-            .footer-links a:not(.connect-btn) { padding: 12px 0; margin-bottom: 0; }
-            .modal-content { padding: 48px 24px; }
-            .modal-close { top: 16px; right: 16px; }
+            .archive-list li a:active { background: rgba(255, 255, 255, 0.08); }
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 </head>
 <body>
     <div id="webgl-container" aria-hidden="true"></div>
-    <div id="global-flash"></div>
+    <div id="system-flash"></div>
     <script>
-        // Execute instant plasma flash immediately
+        // Execute instant plasma flash immediately on DOM parse
         (function() {
-            const flash = document.getElementById('global-flash');
+            const flash = document.getElementById('system-flash');
             if(flash) {
                 flash.style.opacity = '1';
                 setTimeout(() => {
@@ -622,41 +611,41 @@
     </script>
     <nav class="nav-pill" id="main-nav" aria-label="Main Navigation">
         <a href="#ui-layer">Home</a>
-        <button id="nav-pastwork-btn" aria-controls="pastwork-drawer">Past Work</button>
+        <button id="nav-archive-btn" aria-controls="archive-drawer">Archive</button>
         <button id="nav-pricing-btn" aria-controls="pricing-drawer">Pricing</button>
         <a href="#faq">FAQ</a>
         <button id="nav-contact-btn" aria-haspopup="dialog" aria-controls="contact-modal">Contact</button>
     </nav> 
     <main id="ui-layer">
         <section class="hero container">
-            <div class="hero-content reveal-left delay-1 reveal-item">
+            <div class="hero-content reveal-left delay-1 io-target">
                 <h1 id="hero-title">BNDR<span class="dot">.</span></h1>
-                <p id="hero-desc">Custom web design that elevates your brand. We bring 20 years of retail and applied sales psychology to every build.</p>
+                <p id="hero-desc">Custom web design that pulls its own weight. We bring 20 years of retail and applied sales psychology to every build.</p>
             </div>
         </section>
         <section id="work" class="glass-panel">
             <div class="container grid-2">
-                <div class="reveal-left delay-1 reveal-item">
+                <div class="reveal-left delay-1 io-target">
                     <div class="section-header">
                         <div class="section-badge">The Foundation</div>
                     </div>
-                    <p class="lead-text" id="work-lead">You work directly with the person building it. The layout, words, motion, and details are shaped to fit your brand and what people need to understand fast.</p>
+                    <p class="lead-text" id="work-lead">Most 'Devs' building websites are using drag & drop editors that come with unspoken attachments and significant limitations.</p>
                 </div>
-                <div class="reveal-right delay-2 reveal-item balance-offset">
-                    <p class="body-text">We craft every line of code by hand, weaving your unique brand psychology into a tailored experience. Your site stands completely on its own, designed to work as hard as you do.</p>
-                    <p class="body-text">We elevate your brand above the industry standard, expressing exactly what you want your audience to feel. Every build is highly secure, exceptionally stable, and finely tuned to drive results.</p>
+                <div class="reveal-right delay-2 io-target balance-offset">
+                    <p class="body-text">We solve this by actually coding; allowing virtually limitless options for customization. We custom code the math, we weave your specific brand's best psychology, and we build each site on its own, as its own.</p>
+                    <p class="body-text">We help to separate your brand from the rest of your industry pack, and express what you want others to feel about your work, and do it securely making sure what we build is stable and works as hard as you do.</p>
                 </div>
             </div>
         </section>
         <section id="faq" class="glass-panel" style="margin-top: 32px;">
             <div class="container">
-                <div class="section-header reveal-up reveal-item" style="margin-bottom: 32px;">
+                <div class="section-header reveal-up io-target" style="margin-bottom: 32px;">
                     <div class="section-badge">F.A.Q.</div>
                 </div>
-                <p class="lead-text reveal-up delay-1 reveal-item" style="margin-bottom: 64px;">Clear and Direct.</p>
+                <p class="lead-text reveal-up delay-1 io-target" style="margin-bottom: 64px;">Correct ≠ Complex.</p>
                 
                 <div class="faq-columns">
-                    <div class="faq-col reveal-left delay-2 reveal-item">
+                    <div class="faq-col reveal-left delay-2 io-target">
                         <details class="faq-item">
                             <summary>What's the difference between the services?</summary>
                             <p>→ <strong>One-Page Lander™</strong> is a custom one-page site with 1 light revision.<br>
@@ -692,7 +681,7 @@
                             <p>All payments are taken upfront. Work begins the same day payment clears.</p>
                         </details>
                     </div>
-                    <div class="faq-col reveal-right delay-2 reveal-item">
+                    <div class="faq-col reveal-right delay-2 io-target">
                         <details class="faq-item">
                             <summary>How do we communicate?</summary>
                             <p>Call, Email, Text, whatever is easiest for you. A shared board can be added. Something like private ChatGPT space can be included.</p>
@@ -733,7 +722,7 @@
         <footer id="contact">
             <div class="container">
                 <div class="footer-grid">      
-                    <div class="footer-brand reveal-left reveal-item">
+                    <div class="footer-brand reveal-left io-target">
                         <img src="https://www.dropbox.com/scl/fi/t1zxkjm4lq4sfveedn119/bndr26.png?rlkey=mc6decn5olct67crw7zmqp89g&st=cj5uqif6&raw=1" alt="BNDR LLC Logo" class="footer-logo" onerror="this.style.display='none';">
                         <address class="footer-address">
                             1896 East Innovation Park Drive, STE 100<br>
@@ -741,7 +730,7 @@
                             bndrllc.com<br>
                         </address>
                     </div>
-                    <div class="footer-links reveal-up delay-1 reveal-item">
+                    <div class="footer-links reveal-up delay-1 io-target">
                         <div class="section-header" style="margin-bottom: 8px;">
                             <button type="button" class="section-badge connect-section-trigger" aria-controls="contact-modal">Connect</button>
                         </div>
@@ -758,7 +747,7 @@
                             <a href="https://www.youtube.com/@bndrllc" target="_blank" rel="noopener noreferrer" class="connect-btn">YouTube</a>
                         </div>
                     </div>
-                    <div class="footer-links reveal-right delay-2 reveal-item">
+                    <div class="footer-links reveal-right delay-2 io-target">
                         <div class="section-header" style="margin-bottom: 8px;">
                             <div class="section-badge">Direct</div>
                         </div>
@@ -769,7 +758,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="legal-notice reveal-up delay-3 reveal-item">
+                <div class="legal-notice reveal-up delay-3 io-target">
                     <div class="footer-policy-links">
                         <a href="https://www.dropbox.com/scl/fi/um6xi0vfzj0w03kgxtrq2/privacy.html?rlkey=6ylhioa276mrynqylvxc19u7v&st=iakils4n&raw=" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
                         <a href="https://www.dropbox.com/scl/fi/um6xi0vfzj0w03kgxtrq2/privacy.html?rlkey=6ylhioa276mrynqylvxc19u7v&st=28ft9zz3&raw=" target="_blank" rel="noopener noreferrer">Terms of Service</a>
@@ -780,10 +769,8 @@
             </div>
         </footer>
     </main>
-    
     <!-- DRAWERS -->
     <div id="drawer-overlay" class="drawer-overlay" aria-hidden="true"></div>
-    
     <!-- Pricing Drawer -->
     <aside id="pricing-drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="pricing-title">
         <button class="drawer-close" aria-label="Close Pricing">&times;</button>
@@ -838,16 +825,15 @@
         </div>
         </div>
     </aside>
-    
-    <!-- Past Work Drawer -->
-    <aside id="pastwork-drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="pastwork-title">
-        <button class="drawer-close" aria-label="Close Past Work">&times;</button>
+    <!-- Archive Drawer -->
+    <aside id="archive-drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="archive-title">
+        <button class="drawer-close" aria-label="Close Archive">&times;</button>
         <div class="drawer-scroll">
-        <div class="section-header" style="margin-bottom: 48px;"><div id="pastwork-title" class="section-badge">Past Work</div></div>
-        <div class="pastwork-drawer-grid">
-            <div class="pastwork-category">
-                <div class="section-header" style="margin-bottom: 24px;"><div class="section-badge">Foundational Builds</div></div>
-                <ul class="pastwork-list">
+        <div class="section-header" style="margin-bottom: 48px;"><div id="archive-title" class="section-badge">The Archive</div></div>
+        <div class="archive-drawer-grid">
+            <div class="archive-category">
+                <div class="section-header" style="margin-bottom: 24px;"><div class="section-badge">Core Implementations</div></div>
+                <ul class="archive-list">
                     <li><a href="https://bndrbots.github.io/BNDR_LifeMatrix/">LifeMatrix</a></li>
                     <li><a href="https://bndrbots.github.io/Studio/">Studio</a></li>
                     <li><a href="https://bndrbots.github.io/Voss/">Voss</a></li>
@@ -856,9 +842,9 @@
                     <li><a href="https://bndrbots.github.io/particularlygreen/">Particularly Green</a></li>
                 </ul>
             </div>
-            <div class="pastwork-category">
-                <div class="section-header" style="margin-bottom: 24px;"><div class="section-badge">Interactive Applications</div></div>
-                <ul class="pastwork-list">
+            <div class="archive-category">
+                <div class="section-header" style="margin-bottom: 24px;"><div class="section-badge">Tactile WebApps</div></div>
+                <ul class="archive-list">
                     <li><a href="https://bndrbots.github.io/breather">Breather</a></li>
                     <li><a href="https://bndrbots.github.io/morph_black/">Morph Black</a></li>
                     <li><a href="https://bndrbots.github.io/somaflux/">Somaflux</a></li>
@@ -867,9 +853,9 @@
                     <li><a href="https://bndrbots.github.io/CRYSTAL-GATE/">Crystal Gate</a></li>
                 </ul>
             </div>
-            <div class="pastwork-category">
+            <div class="archive-category">
                 <div class="section-header" style="margin-bottom: 24px;"><div class="section-badge">Interactive Games</div></div>
-                <ul class="pastwork-list">
+                <ul class="archive-list">
                     <li><a href="https://bndrbots.github.io/RogueRitaV3/">Rogue Rita V3</a></li>
                     <li><a href="https://bndrbots.github.io/RogueRitaV2/">Rogue Rita V2</a></li>
                     <li><a href="https://bndrbots.github.io/RogueRitaV1/">Rogue Rita V1</a></li>
@@ -877,9 +863,9 @@
                     <li><a href="https://bndrbots.github.io/Graffiti-Generator/">Graffiti Generator</a></li>
                 </ul>
             </div>
-            <div class="pastwork-category">
+                 <div class="archive-category">
                 <div class="section-header" style="margin-bottom: 24px;"><div class="section-badge">Tools & Utilities</div></div>
-                <ul class="pastwork-list">
+                <ul class="archive-list">
                     <li><a href="https://v0-image-analysis-three-chi-68.vercel.app/">Image Analysis Array</a></li>
                     <li><a href="https://bndrbots.github.io/cyber_playground/">Cyber Playground</a></li>
                     <li><a href="https://bndrbots.github.io/rosefieldvip/">Rosefield VIP</a></li>
@@ -890,12 +876,11 @@
         </div>
         </div>
     </aside>
-    
     <!-- CONTACT MODAL -->
     <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="contact-title">
         <div class="modal-content">
             <button class="modal-close" aria-label="Close Contact Modal">&times;</button>
-            <h2 id="contact-title">Start Project</h2>
+            <h2 id="contact-title">Initialize Project</h2>
             <form id="contact-form">
                 <div class="form-group">
                     <input type="text" placeholder="Your Name" required aria-label="Your Name">
@@ -906,11 +891,10 @@
                 <div class="form-group">
                     <textarea placeholder="Briefly describe your objective..." rows="4" required aria-label="Briefly describe your objective"></textarea>
                 </div>
-                <button type="submit" class="btn-primary">Send Message</button>
+                <button type="submit" class="btn-primary">Send Transmission</button>
             </form>
         </div>
     </div>
-    
     <!-- PREVIEW MODAL -->
     <div id="preview-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="preview-title">
         <div class="modal-content">
@@ -934,13 +918,13 @@
         isScrolling: false
     };
 
-    // Text Animation Utilities
+    // Advanced Text Stagger Tool (Zero Dependency)
     function applyTextStagger(selector) {
         const el = document.querySelector(selector);
         if (!el) return;
         
-        // Exclude elements with nested structural tags
-        if(el.querySelector('.dot')) return; 
+        // Exclude elements with nested structural tags if not carefully handled
+        if(el.querySelector('.dot')) return; // Leave hero title intact to avoid breaking span
 
         const words = el.innerText.split(' ');
         el.innerHTML = '';
@@ -959,12 +943,13 @@
         });
     }
 
+    // Prepare advanced motion FX
     document.addEventListener('DOMContentLoaded', () => {
         applyTextStagger('#hero-desc');
         applyTextStagger('#work-lead');
     });
 
-    // DOM & Global Init Sync Loop
+    // DOM & System Init Sync Loop
     function bootloader() {
         if (AppState.init) return;
         if (typeof THREE !== 'undefined') {
@@ -983,7 +968,7 @@
     }
 
     function initDOMSystems() {
-        // --- INTERSECTION OBSERVER ---
+        // --- OPTIMAL INTERSECTION OBSERVER FOR MAGICAL REVEALS ---
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -994,7 +979,8 @@
             });
         }, observerOptions);
         
-        document.querySelectorAll('.reveal-item').forEach(el => observer.observe(el));
+        // Immediate bind - Entrance CSS handles overlap mitigation organically
+        document.querySelectorAll('.io-target').forEach(el => observer.observe(el));
         
         // --- CONSOLIDATED DIALOG & SURFACE CONTROLLER ---
         const SurfaceController = {
@@ -1032,7 +1018,7 @@
                 document.body.dataset.scrollY = scrollY;
                 document.getElementById('ui-layer').setAttribute('inert', '');
                 document.getElementById('main-nav').setAttribute('inert', '');
-                flashEffect();
+                flashSystem();
                 const firstFocusable = this.activeSurface.querySelector('button, input, textarea, a');
                 if (firstFocusable) {
                     setTimeout(() => firstFocusable.focus(), 50); 
@@ -1073,7 +1059,7 @@
         };
         SurfaceController.init();
         document.getElementById('nav-pricing-btn').addEventListener('click', function() { SurfaceController.open('pricing-drawer', this); });
-        document.getElementById('nav-pastwork-btn').addEventListener('click', function() { SurfaceController.open('pastwork-drawer', this); });
+        document.getElementById('nav-archive-btn').addEventListener('click', function() { SurfaceController.open('archive-drawer', this); });
         document.getElementById('nav-contact-btn').addEventListener('click', function() { SurfaceController.open('contact-modal', this); });
         document.querySelectorAll('.connect-section-trigger').forEach(btn => btn.addEventListener('click', function() { SurfaceController.open('contact-modal', this); }));
         
@@ -1083,7 +1069,7 @@
                 e.preventDefault();
                 const btn = e.target.querySelector('button[type="submit"]');
                 const originalText = btn.textContent;
-                btn.textContent = 'Message Sent';
+                btn.textContent = 'Transmission Sent';
                 btn.style.backgroundColor = 'var(--bone)';
                 btn.style.color = 'var(--charcoal)';        
                 setTimeout(() => {
@@ -1098,7 +1084,7 @@
             });
         }
         
-        document.querySelectorAll('.pastwork-list a, .connect-btn').forEach(link => {
+        document.querySelectorAll('.archive-list a, .connect-btn').forEach(link => {
             if(link.hostname === window.location.hostname || link.href.includes('mailto') || link.href.includes('tel')) return;
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -1126,14 +1112,14 @@
             }
             lastScroll = currentScroll;
             
-            // Scroll Position Tracking
+            // Forensic Compliant Single Authority Scroll Signal
             const maxScroll = document.body.scrollHeight - window.innerHeight;
             AppState.targetScrollProgress = Math.min(1, Math.max(0, currentScroll / (maxScroll || 1)));            
         }, { passive: true });
     }
 
-    function flashEffect() {
-        const flash = document.getElementById('global-flash');
+    function flashSystem() {
+        const flash = document.getElementById('system-flash');
         if(!flash) return;
         flash.style.opacity = '1';
         flash.style.transition = 'none';        
@@ -1260,6 +1246,7 @@
             const pivotGroup = new THREE.Group();
             pivotGroup.position.set(...def.p);
             pivotGroup.rotation.set(...def.r);            
+            // Store origin for 4D structural fracture
             pivotGroup.userData = { origPos: new THREE.Vector3(...def.p) };
 
             const hinge = new THREE.Group();
@@ -1276,7 +1263,7 @@
         });
 
         // -------------------------------------------------------------
-        // TACTILE PHYSICS LOGIC
+        // RESTORED TACTILE PHYSICS (Frame-Normalized Original)
         // -------------------------------------------------------------
         let currentRotation = { x: 0.5, y: 0.5 };
         let spinRate = { x: 0, y: 0 }; 
@@ -1299,7 +1286,9 @@
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, window.innerWidth < 800 ? 1.5 : 2));
         });
 
+        // INTERACTION ROUTING & PERMISSION
         function handleInteractionInit(e) {
+            // Guard: Do not fire gyro requests if interacting with UI overlay elements
             if(e && e.target && e.target.closest('#ui-layer, .drawer, .modal-overlay, .nav-pill')) return;
             
             if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
@@ -1363,13 +1352,16 @@
         function animate() {
             requestAnimationFrame(animate); 
             
+            // Raw frame interpolation restored
             AppState.currentScrollProgress += (AppState.targetScrollProgress - AppState.currentScrollProgress) * 0.15;
             
-            // Dynamic 3D Element Separation
+            // Advanced 4D Structural Fracture
             doors.forEach(door => {
+                // 1. Angular Open
                 const targetAngle = (Math.PI / 1.6) * door.dir * AppState.currentScrollProgress;
                 door.parentHinge.rotation[door.axis] += (targetAngle - door.parentHinge.rotation[door.axis]) * 0.2;
 
+                // 2. Positional Fracture (Outward Expansion)
                 const fractureAmount = AppState.currentScrollProgress * 2.5; 
                 const origPos = door.pivotGroup.userData.origPos;
                 const targetPos = origPos.clone().multiplyScalar(1 + fractureAmount);
@@ -1381,6 +1373,7 @@
             coreMesh.rotation.y = AppState.currentScrollProgress * Math.PI * 0.5;
             coreMesh.scale.setScalar(1 + (AppState.currentScrollProgress * 0.4));
             
+            // --- RESTORED ORIGINAL PHYSICS EXECUTION ---
             currentRotation.x += spinRate.x;
             currentRotation.y += spinRate.y;
             
@@ -1426,6 +1419,7 @@
                 driftPos.add(driftVel);
                 driftAcc.set(0, 0, 0);
                 
+                // Add slight lerp for base position tracking on resize
                 boxGroup.position.x += ((basePosX + driftPos.x) - boxGroup.position.x) * 0.05;
                 boxGroup.position.y += (driftPos.y - boxGroup.position.y) * 0.05;
             } else {
