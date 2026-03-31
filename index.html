@@ -280,7 +280,7 @@
         @media (min-width: 768px) { .faq-item p { padding-right: 48px; } }
         @keyframes faqReveal { to { opacity: 1; transform: translateY(0); } }
         
-        /* --- DRAWERS (SIDE PANELS) --- */
+        /* --- DRAWERS (SIDE PANELS - DESKTOP BASE) --- */
         .drawer-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh; height: 100dvh; background: rgba(2, 2, 2, 0.6);
             backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
@@ -303,14 +303,10 @@
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             overscroll-behavior: contain;
-            /* touch-action: pan-y; REMOVED - This was locking horizontal gestures globally */
             padding: 96px max(32px, env(safe-area-inset-right)) max(48px, env(safe-area-inset-bottom)) max(32px, env(safe-area-inset-left));
         }
         .drawer.active { transform: translateX(0); }
-        @media (max-width: 539px) {
-            .drawer { max-width: 100%; }
-            .drawer-scroll { padding: 80px max(24px, env(safe-area-inset-right)) max(40px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left)); }
-        }
+
         .drawer-close {
             position: absolute; top: max(32px, env(safe-area-inset-top)); right: max(32px, env(safe-area-inset-right)); background: none; border: none; font-size: 36px;
             color: var(--bone); cursor: pointer; opacity: 0.5; transition: all 0.3s var(--ease-premium);
@@ -320,7 +316,7 @@
         .drawer-close:focus-visible, .drawer-close:active { opacity: 1; outline: none; color: var(--plasma); transform: rotate(90deg); background: rgba(255,255,255,0.05); }
         @media (hover: hover) { .drawer-close:hover { opacity: 1; color: var(--plasma); transform: rotate(90deg); background: rgba(255,255,255,0.05); } }
         
-        /* --- PRICING MINI CARDS --- */
+        /* --- PRICING CARDS (DESKTOP) --- */
         .pricing-drawer-grid { display: grid; gap: 24px; }
         .pricing-card-mini {
             background: rgba(2, 2, 2, 0.4); color: var(--bone); padding: 32px; border-radius: 12px;
@@ -341,7 +337,7 @@
         .pricing-card-mini .feature-list li::before { content: '✓'; color: var(--plasma); font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 14px; }
         .pricing-card-mini.tier-special .feature-list li::before { color: var(--magenta); }
         
-        /* --- ARCHIVE MINI CARDS --- */
+        /* --- ARCHIVE CARDS (DESKTOP) --- */
         .archive-drawer-grid { display: grid; gap: 24px; }
         .archive-category {
             background: rgba(2, 2, 2, 0.4); color: var(--bone); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 32px;
@@ -363,9 +359,6 @@
         @media (hover: hover) {
             .archive-list li a:hover { color: var(--plasma); padding-left: 12px; border-bottom-color: rgba(204, 255, 0, 0.3); outline: none; background: linear-gradient(90deg, rgba(204,255,0,0.05) 0%, transparent 100%); }
             .archive-list li a:hover::after { opacity: 1; transform: translateX(0); }
-        }
-        @media (max-width: 539px) {
-            .pricing-card-mini, .archive-category { padding: 24px; }
         }
         
         /* --- FOOTER & CONTACT --- */
@@ -398,7 +391,6 @@
             .connect-btn:hover { transform: translateY(-3px); }
             .connect-btn:hover::before { background: #e5ff66; box-shadow: 0 6px 16px -4px rgba(204, 255, 0, 0.4); }
         }
-        /* Elite QR Code Compression */
         .elite-qr {
             height: 72px; 
             max-height: 80px;
@@ -420,13 +412,12 @@
         @media (hover: hover) { .footer-policy-links a:hover { color: var(--plasma); opacity: 1; } }
         .legal-notice { font-size: 10px; font-weight: 400; letter-spacing: 0.01em; line-height: 1.5; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; max-width: 100%; }
         
-        /* --- MODALS (Ultra-Professional Glass) --- */
+        /* --- MODALS --- */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh; height: 100dvh; background: rgba(10, 10, 11, 0.9);
             backdrop-filter: blur(32px) saturate(180%); -webkit-backdrop-filter: blur(32px) saturate(180%); z-index: 2000;
             display: flex; align-items: flex-start; justify-content: center; overflow-y: auto; padding: max(24px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
             opacity: 0; pointer-events: none; transition: opacity 0.5s var(--ease-premium); overscroll-behavior: contain;
-            /* REMOVED touch-action lock here */
         }
         @media (min-width: 768px) { .modal-overlay { align-items: center; padding: 0; } }
         .modal-overlay.active { opacity: 1; pointer-events: auto; }
@@ -477,11 +468,11 @@
         .preview-iframe-container { flex-grow: 1; background: #ffffff; border-radius: 8px; overflow: hidden; position: relative; box-shadow: inset 0 0 20px rgba(0,0,0,0.1); }
         .preview-iframe-container iframe { width: 100%; height: 100%; border: none; background: transparent; }
 
-        /* --- MOBILE UX ENHANCEMENTS (Apple-Tier Drawer Transformation) --- */
+        /* --- MOBILE UX ENHANCEMENTS (Native Vertical Stack) --- */
         @media (max-width: 539px) {
             /* Transform Side Drawers into Premium iOS Bottom Sheets */
             .drawer {
-                top: 8vh; /* Higher floating edge for better reachability */
+                top: 8vh; 
                 height: 92vh; height: 92dvh;
                 right: 0; left: 0;
                 transform: translateY(100%);
@@ -490,12 +481,10 @@
                 border-top: 1px solid rgba(255, 255, 255, 0.15);
                 box-shadow: 0 -20px 60px rgba(0,0,0,0.6);
                 max-width: 100%;
-                background: rgba(18, 18, 19, 0.75); /* Slightly darker/more opaque for mobile contrast */
+                background: rgba(18, 18, 19, 0.85); 
                 backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%);
             }
-            .drawer.active {
-                transform: translateY(0);
-            }
+            .drawer.active { transform: translateY(0); }
             
             /* Native UI Drag Indicator Pill */
             .drawer::before {
@@ -518,66 +507,75 @@
                 color: rgba(255,255,255,0.7);
             }
 
-            /* Edge-to-Edge Container Preparation */
-            .drawer-scroll { padding: 64px 0 64px 0; }
-            #pricing-title, #archive-title { margin-left: 24px; margin-right: 24px; font-size: 32px; }
-            .drawer-scroll > .section-header { padding: 0 24px; }
+            /* Deep vertical scroll setup - removing all padding-top so sticky headers hit the absolute top */
+            .drawer-scroll { 
+                padding: 0 0 64px 0; 
+            }
+            
+            /* Adjust top elements to account for the removed container padding */
+            .drawer-scroll > .section-header:first-child { 
+                margin-top: 64px; 
+                padding: 0 24px; 
+            }
+            #pricing-title, #archive-title { 
+                margin-top: 0; 
+                margin-left: 24px; 
+                margin-right: 24px; 
+                font-size: 32px; 
+            }
 
-            /* Pricing: Horizontal iOS Snap Carousel */
+            /* --- Pricing: Clean Vertical Stack --- */
             .pricing-drawer-grid {
                 display: flex;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                overflow-y: hidden;
-                scroll-snap-type: x mandatory;
+                flex-direction: column;
+                gap: 24px;
                 padding: 0 24px 40px 24px;
-                gap: 16px;
-                scrollbar-width: none;
-                -webkit-overflow-scrolling: touch;
-                scroll-padding-left: 24px;
-                overscroll-behavior-x: contain;
-                touch-action: auto; /* Explicitly ensure touch input flows into this block */
-                transform: translateZ(0); /* Force hardware compositing to bypass iOS wrapper bugs */
-                -webkit-transform: translateZ(0);
-            }
-            .pricing-drawer-grid::-webkit-scrollbar { display: none; }
-            .pricing-drawer-grid::after {
-                content: '';
-                flex: 0 0 8px; /* Safe-area spacer for the final snap point */
             }
             .pricing-card-mini {
-                flex: 0 0 84vw;
-                scroll-snap-align: start;
+                width: 100%;
                 padding: 32px 24px;
                 border-radius: 24px;
                 background: rgba(10, 10, 11, 0.85);
                 border: 1px solid rgba(255,255,255,0.08);
             }
 
-            /* Archive: iOS Grouped Table View */
+            /* --- Archive: Native iOS Sticky Header List --- */
             .archive-drawer-grid {
-                display: flex; flex-direction: column; gap: 32px; padding: 0 24px;
+                display: block; 
+                padding: 0 24px 40px 24px;
             }
             .archive-category {
-                padding: 0; border: none; background: transparent; box-shadow: none;
+                padding: 0; border: none; background: transparent; box-shadow: none; margin-bottom: 40px;
             }
+            /* The Sticky Magic */
             .archive-category .section-header {
-                margin-bottom: 12px !important; padding: 0 8px;
+                position: sticky;
+                top: 0;
+                z-index: 10;
+                background: rgba(18, 18, 19, 0.95);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                padding: 20px 24px;
+                margin: 0 -24px 12px -24px !important; /* Bleed background to edges */
+                border-bottom: 1px solid rgba(255,255,255,0.08);
             }
+            .archive-category .section-header::after { display: none; /* Hide gradient line on mobile sticky header */ }
+            
             .archive-list {
-                background: rgba(20, 20, 22, 0.6);
-                border: 1px solid rgba(255, 255, 255, 0.08);
-                border-radius: 20px;
+                background: transparent;
+                border: none;
+                border-radius: 0;
                 gap: 0;
-                overflow: hidden;
             }
             .archive-list li a {
-                padding: 18px 20px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+                padding: 20px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
                 font-size: 16px;
                 color: rgba(232, 228, 223, 0.95);
                 border-radius: 0;
                 background: transparent;
+                display: flex;
+                align-items: center;
             }
             .archive-list li:last-child a { border-bottom: none; }
             .archive-list li a::after {
@@ -588,7 +586,22 @@
                 color: rgba(255,255,255,0.25);
                 opacity: 1; transform: none; transition: color 0.3s;
             }
-            .archive-list li a:active { background: rgba(255, 255, 255, 0.08); }
+            .archive-list li a:active { background: transparent; opacity: 0.5; }
+
+            /* Global Base Optimizations */
+            .nav-pill { top: max(12px, env(safe-area-inset-top)); gap: 4px; padding: 6px; max-width: calc(100% - 24px); }
+            .nav-pill a, .nav-pill button { font-size: 11px; padding: 14px 18px; letter-spacing: 0.08em; }
+            section { padding: 80px 0; }
+            .lead-text { font-size: clamp(26px, 7vw, 32px); line-height: 1.25; margin-bottom: 24px; }
+            .body-text { font-size: 16px; line-height: 1.6; margin-bottom: 24px; }
+            .faq-item { padding: 24px 0; }
+            .faq-item summary { font-size: 20px; }
+            .faq-item p { font-size: 16px; }
+            .connect-btn { padding: 12px 16px; font-size: 11px; }
+            .connect-grid { gap: 12px; }
+            .footer-links a:not(.connect-btn) { padding: 12px 0; margin-bottom: 0; }
+            .modal-content { padding: 48px 24px; }
+            .modal-close { top: 16px; right: 16px; }
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
@@ -832,7 +845,7 @@
         <div class="section-header" style="margin-bottom: 48px;"><div id="archive-title" class="section-badge">The Archive</div></div>
         <div class="archive-drawer-grid">
             <div class="archive-category">
-                <div class="section-header" style="margin-bottom: 24px;"><div class="section-badge">Core Implementations</div></div>
+                <div class="section-header"><div class="section-badge">Core Implementations</div></div>
                 <ul class="archive-list">
                     <li><a href="https://bndrbots.github.io/BNDR_LifeMatrix/">LifeMatrix</a></li>
                     <li><a href="https://bndrbots.github.io/Studio/">Studio</a></li>
@@ -843,7 +856,7 @@
                 </ul>
             </div>
             <div class="archive-category">
-                <div class="section-header" style="margin-bottom: 24px;"><div class="section-badge">Tactile WebApps</div></div>
+                <div class="section-header"><div class="section-badge">Tactile WebApps</div></div>
                 <ul class="archive-list">
                     <li><a href="https://bndrbots.github.io/breather">Breather</a></li>
                     <li><a href="https://bndrbots.github.io/morph_black/">Morph Black</a></li>
@@ -854,7 +867,7 @@
                 </ul>
             </div>
             <div class="archive-category">
-                <div class="section-header" style="margin-bottom: 24px;"><div class="section-badge">Interactive Games</div></div>
+                <div class="section-header"><div class="section-badge">Interactive Games</div></div>
                 <ul class="archive-list">
                     <li><a href="https://bndrbots.github.io/RogueRitaV3/">Rogue Rita V3</a></li>
                     <li><a href="https://bndrbots.github.io/RogueRitaV2/">Rogue Rita V2</a></li>
@@ -863,8 +876,8 @@
                     <li><a href="https://bndrbots.github.io/Graffiti-Generator/">Graffiti Generator</a></li>
                 </ul>
             </div>
-                 <div class="archive-category">
-                <div class="section-header" style="margin-bottom: 24px;"><div class="section-badge">Tools & Utilities</div></div>
+            <div class="archive-category">
+                <div class="section-header"><div class="section-badge">Tools & Utilities</div></div>
                 <ul class="archive-list">
                     <li><a href="https://v0-image-analysis-three-chi-68.vercel.app/">Image Analysis Array</a></li>
                     <li><a href="https://bndrbots.github.io/cyber_playground/">Cyber Playground</a></li>
